@@ -5,7 +5,7 @@ const db = knex(knexFile);
 
 
 const team = require("./routes/teamRoute");
-
+const apply = require("./routes/applyRoute")
 
 const app = express();
 const bodyParser = require("body-parser");
@@ -41,7 +41,7 @@ app.use(express.static("swagger"));
 
 
 app.use("/admin", team);
-
+app.use("/admin",apply);
 
 app.listen(port, () => {
   console.log("Express listening on port", port);
