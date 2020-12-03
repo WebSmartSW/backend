@@ -10,7 +10,7 @@ let teamController = {};
   teamController.read = function (req, res) {
   knex("team")
       
-      .select("teamName", "title", "description")
+      .select("teamName", "title", "description","leaderName")
       .then((teamList) => {
       res.json(teamList);
   });
