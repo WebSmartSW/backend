@@ -18,8 +18,8 @@ applyController.create = async (req, res) => {
         leaderName:leaderName
       })
       .into("team")
-      .then((result) => {
-        res.end("teamapply");
+      .then(() => {
+        res.send("A project is created");
       });
   };
 
