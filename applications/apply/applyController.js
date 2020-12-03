@@ -6,7 +6,8 @@ let applyController = {};
 
 
 applyController.create = async (req, res) => {
-    const {teamName,title,description,leaderId,phone,email,leaderName } = req.body;
+    const {teamName,title,description,leaderId,phone,email,leaderName,members } = req.body;
+    const membersToString = JSON.stringify(members)
     knex
       .insert({
         teamName: teamName,
@@ -15,7 +16,8 @@ applyController.create = async (req, res) => {
         leaderId: leaderId,
         phone:phone,
         email:email,
-        leaderName:leaderName
+        leaderName:leaderName,
+        members:membersToString
       })
       .into("team")
       .then(() => {
